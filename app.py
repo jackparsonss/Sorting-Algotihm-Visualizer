@@ -44,7 +44,7 @@ class App:
       #-----WIDGETS-----#
       self.algorithm_menu = ttk.Combobox(self.UI_frame_left, textvariable=self.selected_alg, values=self.algorithms, width=31)
       self.speed_scale = Scale(self.UI_frame_right, from_=0.01, to=1.0, length=170, digits=3, resolution=0.01, orient=HORIZONTAL, label='Speed (Lower is Faster)')
-      self.size_entry = Scale(self.UI_frame_right, from_=3, to=50, length=170, resolution=1, orient=HORIZONTAL, label='Size')
+      self.size_entry = Scale(self.UI_frame_right, from_=3, to=50, length=170, resolution=1, orient=HORIZONTAL, label='Size', command=self.generate)
       
    def start(self):
       self.generate() # Display graph when app starts
@@ -105,7 +105,7 @@ class App:
 
       self.root.update_idletasks() # Update screen
 
-   def generate(self):
+   def generate(self, input=None):
       # Generates random data
       self.data = []
       for _ in range(self.size_entry.get()):
