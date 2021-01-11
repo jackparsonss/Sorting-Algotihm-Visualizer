@@ -45,42 +45,34 @@ class App:
       self.algorithm_menu = ttk.Combobox(self.UI_frame_left, textvariable=self.selected_alg, values=self.algorithms, width=31)
       self.speed_scale = Scale(self.UI_frame_right, from_=0.01, to=1.0, length=170, digits=3, resolution=0.01, orient=HORIZONTAL, label='Speed (Lower is Faster)')
       self.size_entry = Scale(self.UI_frame_right, from_=3, to=50, length=170, resolution=1, orient=HORIZONTAL, label='Size', command=self.generate)
+
+      self.algorithm_functions = {'Merge Sort': lambda:mergeSort(self.data, self.draw, self.speed_scale.get())}
       
    def start(self):
-      self.generate() # Display graph when app starts
+      self.generate() # Display data when app starts
 
-      self.UI_frame_right.grid(row=0, column=1, padx=10, pady=10)
-      self.UI_frame_left.grid(row=0, column=0, padx=10, pady=10)
+      self.create_top_left()
+      self.create_top_right()
+      
+      #-----BOTTOM-----#
+      self.canvas.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
 
+   def create_top_left(self):
       #-----ALGORITHM ROW-----#
+      self.UI_frame_left.grid(row=0, column=0, padx=10, pady=10)
       Label(self.UI_frame_left, text="Algorithm: ", bg='#8D99AE', font="Arial", borderwidth=10).grid(row=0, column=0, padx=5, pady=5, sticky=W)
       self.algorithm_menu.grid(row=0, column=1, padx=5, pady=5)
       self.algorithm_menu.current(0)
       Button(self.UI_frame_left, text="Start Algorithm", command=self.startAlgorithm, bg='#EE6C4D', pady=10).grid(row=0, column=2, padx=5, pady=5)
 
+   def create_top_right(self):
       #-----DATA ROW-----#
+      self.UI_frame_right.grid(row=0, column=1, padx=10, pady=10)
       Label(self.UI_frame_right, text="Data: ", bg='#8D99AE', font="Arial").grid(row=0, column=0, pady=5)
       self.speed_scale.grid(row=0, column=2, columnspan=2, padx=5, pady=5)
       self.size_entry.grid(row=0, column=1, padx=5, pady=5)
-      Button(self.UI_frame_right, text="Generate", command=self.generate, bg='#EE6C4D',padx=15, pady=10).grid(row=0, column=4, padx=5, pady=5)
+      Button(self.UI_frame_right, text="New Data", command=self.generate, bg='#EE6C4D',padx=15, pady=10).grid(row=0, column=4, padx=5, pady=5)
 
-      #-----BOTTOM-----#
-      self.canvas.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
-
-   def startAlgorithm(self):
-      if self.algorithm_menu.get() == 'Bubble Sort':
-         print("Bubble Sort")
-      elif self.algorithm_menu.get() == 'Insertion Sort':
-         print("Insertion Sort")
-      elif self.algorithm_menu.get() == 'Merge Sort':
-         mergeSort(self.data, self.draw, self.speed_scale.get())
-      elif self.algorithm_menu.get() == 'Quick Sort':
-         print("Quick Sort")
-      elif self.algorithm_menu.get() == 'Selection Sort':
-         print("Selection Sort")
-
-      self.draw(self.data, ['#E71D36' for x in range(len(self.data))])
-   
    def draw(self, data, color_array):
       self.canvas.delete('all')
       bar_height = 760
@@ -104,6 +96,10 @@ class App:
          self.canvas.create_text(x_top+2, y_top, anchor=SW, text=str(data[i])) # Adds number on top of each bar
 
       self.root.update_idletasks() # Update screen
+
+   def startAlgorithm(self):
+      self.algorithm_functions[self.algorithm_menu.get()]()
+      self.draw(self.data, ['#E71D36' for x in range(len(self.data))])   
 
    def generate(self, input=None):
       # Generates random data
