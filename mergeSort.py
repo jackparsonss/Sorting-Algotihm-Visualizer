@@ -36,7 +36,7 @@ def merge(data, left, middle, right, draw, speed):
          data[index] = right_partition[right_index]
          right_index += 1
    
-   draw(data, ["cadet blue" if x >= left and x <= right else "purple3" for x in range(len(data))])
+   draw(data, ["#2EC4B6" if x >= left and x <= right else "#EDF2F4" for x in range(len(data))])
    time.sleep(speed)
 
 def colorArray(length, left, middle, right):
@@ -45,10 +45,10 @@ def colorArray(length, left, middle, right):
    for i in range(length):
       if i >= left and i <= right:
          if i >= left and i <= middle:
-               colorArray.append("SpringGreen3")
+               colorArray.append("#FF9F1C")
          else:
-               colorArray.append("dark slate gray")
+               colorArray.append("#EE6C4D")
       else:
-         colorArray.append("purple3")
+         colorArray.append("#EDF2F4")
 
    return colorArray

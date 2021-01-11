@@ -100,7 +100,7 @@ class App:
 
    def startAlgorithm(self):
       self.algorithm_functions[self.algorithm_menu.get()]()
-      self.draw(self.data, ['#E71D36' for x in range(len(self.data))])   
+      self.draw(self.data, ['#E71D36' for x in range(len(self.data))]) # Change color when algorithm completes
 
    def generate(self, input=None):
       # Generates random data
