@@ -47,6 +47,7 @@ class App:
       self.size_entry = Scale(self.UI_frame_right, from_=3, to=50, length=170, resolution=1, orient=HORIZONTAL, label='Size', command=self.generate)
 
       self.algorithm_functions = {'Bubble Sort': lambda:bubbleSort(self.data, self.draw, self.speed_scale.get()),
+                                  'Insertion Sort': lambda:insertionSort(self.data, self.draw, self.speed_scale.get()),
                                   'Merge Sort': lambda:mergeSort(self.data, self.draw, self.speed_scale.get()),
                                   'Selection Sort': lambda:selectionSort(self.data, self.draw, self.speed_scale.get())}
       
