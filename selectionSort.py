@@ -10,3 +10,5 @@ def selectionSort(data, draw, speed):
       draw(data, ['#2EC4B6' if x == i or x == min_index else '#EDF2F4' for x in range(len(data))])
       time.sleep(speed)
       data[i], data[min_index] = data[min_index], data[i]
+      draw(data, ['#2EC4B6' if x == i or x == min_index else '#EDF2F4' for x in range(len(data))])
+      time.sleep(speed)
