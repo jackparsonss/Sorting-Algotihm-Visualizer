@@ -46,7 +46,8 @@ class App:
       self.speed_scale = Scale(self.UI_frame_right, from_=0.01, to=1.0, length=170, digits=3, resolution=0.01, orient=HORIZONTAL, label='Speed (Lower is Faster)')
       self.size_entry = Scale(self.UI_frame_right, from_=3, to=50, length=170, resolution=1, orient=HORIZONTAL, label='Size', command=self.generate)
 
-      self.algorithm_functions = {'Merge Sort': lambda:mergeSort(self.data, self.draw, self.speed_scale.get())}
+      self.algorithm_functions = {'Merge Sort': lambda:mergeSort(self.data, self.draw, self.speed_scale.get()),
+                                  'Bubble Sort': lambda:bubbleSort(self.data, self.draw, self.speed_scale.get())}
       
    def start(self):
       self.generate() # Display data when app starts
