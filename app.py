@@ -49,6 +49,7 @@ class App:
       self.algorithm_functions = {'Bubble Sort': lambda:bubbleSort(self.data, self.draw, self.speed_scale.get()),
                                   'Insertion Sort': lambda:insertionSort(self.data, self.draw, self.speed_scale.get()),
                                   'Merge Sort': lambda:mergeSort(self.data, self.draw, self.speed_scale.get()),
+                                  'Quick Sort': lambda:quickSort(self.data, self.draw, self.speed_scale.get()),
                                   'Selection Sort': lambda:selectionSort(self.data, self.draw, self.speed_scale.get())}
       
    def start(self):
