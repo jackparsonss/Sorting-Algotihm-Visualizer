@@ -1,15 +1,16 @@
-# Color Scheme: https://coolors.co/011627-fdfffc-2ec4b6-e71d36-ff9f1c
+# Color Schemes: 
+# https://coolors.co/011627-fdfffc-2ec4b6-e71d36-ff9f1c
 # https://coolors.co/3d5a80-98c1d9-e0fbfc-ee6c4d-293241
 # https://coolors.co/2b2d42-8d99ae-edf2f4-ef233c-d90429
 
+import random
 from tkinter import *
 from tkinter import ttk
-import random
-from bubbleSort import bubbleSort
-from insertionSort import insertionSort
-from mergeSort import mergeSort
-from quickSort import quickSort
-from selectionSort import selectionSort
+from algorithms.bubbleSort import bubbleSort
+from algorithms.insertionSort import insertionSort
+from algorithms.mergeSort import mergeSort
+from algorithms.quickSort import quickSort
+from algorithms.selectionSort import selectionSort
 
 def initialize():
    root = Tk()
