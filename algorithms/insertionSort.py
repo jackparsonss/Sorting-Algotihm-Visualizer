@@ -1,6 +1,14 @@
 import time
 
 def insertionSort(data, draw, speed):
+   """ An algorithm which starts at the first index and goes through each item one at a time sorting it accordingly
+   :param data: The data being sorted
+   :type data: List[int]
+   :param draw: The function which draws the algorithm onto the screen
+   :type draw: function
+   :param speed: The rate at which the user sees the data being sorted
+   :type speed: float
+   """
    for i in range(1, len(data)):
       current = data[i]
       j = i - 1

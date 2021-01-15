@@ -1,6 +1,14 @@
 import time
 
 def selectionSort(data, draw, speed):
+   """ An algorithm which repeatedly selects the next-smallest element and swaps it into place accordingly
+   :param data: The data being sorted
+   :type data: List[int]
+   :param draw: The function which draws the algorithm onto the screen
+   :type draw: function
+   :param speed: The rate at which the user sees the data being sorted
+   :type speed: float
+   """
    for i in range(len(data)):
       min_index = i
       for j in range(i+1, len(data)):

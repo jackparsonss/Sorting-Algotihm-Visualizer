@@ -1,6 +1,14 @@
 import time
 
 def bubbleSort(data, draw, speed):
+   """ An algorithm walks through the data and if an item is out of order, swap them accordingly
+   :param data: The data being sorted
+   :type data: List[int]
+   :param draw: The function which draws the algorithm onto the screen
+   :type draw: function
+   :param speed: The rate at which the user sees the data being sorted
+   :type speed: float
+   """
    is_sorted = False
    last_unsorted = len(data)-1
 
