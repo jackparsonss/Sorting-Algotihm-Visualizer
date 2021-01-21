@@ -1,6 +1,14 @@
 import time
 
 def shellSort(data, draw, speed):
+   """ An algorithm which starts at the first index and goes through items a gap apart sorting them accordingly
+   :param data: The data being sorted
+   :type data: List[int]
+   :param draw: The function which draws the algorithm onto the screen
+   :type draw: function
+   :param speed: The rate at which the user sees the data being sorted
+   :type speed: float
+   """
    # The distance between each value being compared
    gap = len(data) // 2
 
