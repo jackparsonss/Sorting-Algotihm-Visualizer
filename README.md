@@ -11,4 +11,5 @@ In this repository I used the python module tkinter to implement a graphical use
 * Merge Sort
 * Quick Sort
 * Selection Sort
+* Shell Sort
 
