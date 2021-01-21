@@ -11,6 +11,7 @@ from algorithms.insertionSort import insertionSort
 from algorithms.mergeSort import mergeSort
 from algorithms.quickSort import quick_sort
 from algorithms.selectionSort import selectionSort
+from algorithms.shellSort import shellSort
 
 def initialize():
    """ Creates a window through tkinter and sets its name, size and color
@@ -48,7 +49,7 @@ class App:
       #-----DATA-----#
       self.root = root
       self.data = []
-      self.algorithms = ['Bubble Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort', 'Selection Sort']
+      self.algorithms = ['Bubble Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort', 'Selection Sort', 'Shell Sort']
       self.selected_alg = StringVar()
 
       #-----BORDERS-----#
@@ -65,7 +66,8 @@ class App:
                                   'Insertion Sort': lambda:insertionSort(self.data, self.draw, self.speed_scale.get()),
                                   'Merge Sort': lambda:mergeSort(self.data, self.draw, self.speed_scale.get()),
                                   'Quick Sort': lambda:quick_sort(self.data, self.draw, self.speed_scale.get()),
-                                  'Selection Sort': lambda:selectionSort(self.data, self.draw, self.speed_scale.get())}
+                                  'Selection Sort': lambda:selectionSort(self.data, self.draw, self.speed_scale.get()),
+                                  'Shell Sort': lambda:shellSort(self.data, self.draw, self.speed_scale.get())}
       
    def start(self):
       """ 
